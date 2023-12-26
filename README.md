@@ -16,15 +16,6 @@ This Flutter project demonstrates the implementation of a music player user inte
 
 ![](preview_images/persistent.gif)||![](preview_images/music%20list.png)||![](preview_images/now%20playing.png)
 
-## Getting Started
-
-Follow these instructions to get a copy of the project up and running on your local machine for development and testing purposes.
-
-### Prerequisites
-
-*   Ensure you have Flutter and Dart installed on your machine.
-*   Use a compatible IDE such as VSCode or Android Studio.
-
 ## State Management with Get
 
 This project uses the Get package for state management. Here are some reasons why Get is chosen:
