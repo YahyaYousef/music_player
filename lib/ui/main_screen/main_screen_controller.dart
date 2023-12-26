@@ -10,6 +10,7 @@ import 'package:music_player/ui/settings/settings_page.dart';
 class MainScreenController extends GetxController {
   var selectedIndex = 0.obs;
 
+
   var pages = [
     PagesModel(
       icon: Assets.iconsHome,
@@ -36,7 +37,7 @@ class MainScreenController extends GetxController {
 
   var pageViewController = PageController();
 
-  void changeScreen(int index) {
+  void changeScreen(int index) async {
     selectedIndex(index);
     pageViewController.animateToPage(
       index,
@@ -45,17 +46,15 @@ class MainScreenController extends GetxController {
     );
   }
 
-  double getCorrectPosition() {
+  double getCorrectWidth() {
     var screenWidth = Get.width;
-    switch(selectedIndex.value){
-      case 0:
-        return ((screenWidth - 150) * selectedIndex.value / pages.length) + 10;
+    switch (selectedIndex.value) {
       case 1:
-        return ((screenWidth + 100/1) * selectedIndex.value / pages.length);
+        return ((screenWidth + 100 / 1) * selectedIndex.value / pages.length);
       case 3:
-        return ((screenWidth + 100/3) * selectedIndex.value / pages.length) + 15;
+        return ((screenWidth + 100 / 3) * selectedIndex.value / pages.length);
       case 4:
-        return ((screenWidth + 100/4) * selectedIndex.value / pages.length) + 25;
+        return ((screenWidth + 100 / 4) * selectedIndex.value / pages.length);
     }
     return ((screenWidth + 100) * selectedIndex.value / pages.length);
   }

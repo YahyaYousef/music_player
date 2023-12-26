@@ -12,6 +12,7 @@ class MainScreenPage extends GetView<MainScreenController> {
   Widget build(BuildContext context) {
     Get.lazyPut(() => MainScreenController());
     return Scaffold(
+      extendBodyBehindAppBar: true,
       body: Stack(
         alignment: Alignment.bottomCenter,
         children: [
@@ -35,7 +36,7 @@ class MainScreenPage extends GetView<MainScreenController> {
                     Padding(
                       padding: const EdgeInsets.only(bottom: 4),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: controller.pages
                             .map(
                               (pageData) => pageData.isCircleButton
@@ -48,24 +49,36 @@ class MainScreenPage extends GetView<MainScreenController> {
                             .toList(),
                       ),
                     ),
-                    AnimatedPositioned(
-                      left: controller.getCorrectPosition(),
-                      duration: const Duration(milliseconds: 500),
-                      width: 30,
-                      height: 8,
-                      curve: Curves.ease,
-                      child: Container(
-                        margin: const EdgeInsets.only(
-                          bottom: 4,
-                          left: 4,
-                          right: 4,
+                    Row(
+                      children: [
+                        AnimatedContainer(
+                          duration: const Duration(milliseconds: 500),
+                          width: controller.selectedIndex.value == 0
+                              ? 20
+                              : controller.getCorrectWidth(),
+                          height: 8,
+                          curve: Curves.ease,
+                          child: Container(
+                            color: Colors.transparent,
+                          ),
                         ),
-                        decoration: BoxDecoration(
-                          color: Get.theme.colorScheme.secondary,
-                          borderRadius: BorderRadius.circular(10),
+                        AnimatedContainer(
+                          duration: const Duration(milliseconds: 200),
+                          width: 30,
+                          height: 8,
+                          curve: Curves.ease,
+                          child: Container(
+                            margin: const EdgeInsetsDirectional.only(
+                              bottom: 4
+                            ),
+                            decoration: BoxDecoration(
+                              color: Get.theme.colorScheme.secondary,
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
                         ),
-                      ),
-                    ),
+                      ],
+                    )
                   ],
                 ),
               ),

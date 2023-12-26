@@ -66,6 +66,7 @@ class NowPlayingBottomPanel extends GetView<NowPlayingBottomPanelController> {
                               const SizedBox(width: 10,),
                               Obx(() {
                                 return Expanded(
+                                  flex: 2,
                                   child: Text(
                                     controller.trackLabel.value,
                                     style: GoogleFonts.lato(
@@ -74,7 +75,6 @@ class NowPlayingBottomPanel extends GetView<NowPlayingBottomPanelController> {
                                 );
                               }),
                               Row(
-                                mainAxisSize: MainAxisSize.min,
                                 children: [
                                   IconButton(
                                     onPressed: () {},
