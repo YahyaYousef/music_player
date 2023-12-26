@@ -65,30 +65,24 @@ class NowPlayingBottomPanel extends GetView<NowPlayingBottomPanelController> {
                               ),
                               const SizedBox(width: 10,),
                               Obx(() {
-                                return Expanded(
-                                  flex: 2,
-                                  child: Text(
-                                    controller.trackLabel.value,
-                                    style: GoogleFonts.lato(
-                                        color: Colors.white, fontSize: 16),
-                                  ),
+                                return Text(
+                                  controller.trackLabel.value,
+                                  style: GoogleFonts.lato(
+                                      color: Colors.white, fontSize: 16),
                                 );
                               }),
-                              Row(
-                                children: [
-                                  IconButton(
-                                    onPressed: () {},
-                                    icon: SvgPicture.asset(
-                                      Assets.iconsPause,
-                                    ),
-                                  ),
-                                  IconButton(
-                                    onPressed: () {},
-                                    icon: SvgPicture.asset(
-                                      Assets.iconsNext,
-                                    ),
-                                  ),
-                                ],
+                              const Spacer(),
+                              IconButton(
+                                onPressed: () {},
+                                icon: SvgPicture.asset(
+                                  Assets.iconsPause,
+                                ),
+                              ),
+                              IconButton(
+                                onPressed: () {},
+                                icon: SvgPicture.asset(
+                                  Assets.iconsNext,
+                                ),
                               ),
                             ],
                           ),
